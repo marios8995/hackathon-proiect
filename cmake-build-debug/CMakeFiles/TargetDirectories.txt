@@ -1,4 +1,0 @@
-C:/Projects/C++/untitled/cmake-build-debug/CMakeFiles/sqlite3.dir
-C:/Projects/C++/untitled/cmake-build-debug/CMakeFiles/untitled.dir
-C:/Projects/C++/untitled/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Projects/C++/untitled/cmake-build-debug/CMakeFiles/rebuild_cache.dir
