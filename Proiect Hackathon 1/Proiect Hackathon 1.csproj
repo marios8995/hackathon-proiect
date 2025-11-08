@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>Proiect_Hackathon_1</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="hackathon-proiect-main\src\DumbsterDatabaseManagerCLI.cpp" />
+    <None Remove="images\imagineHackaThon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="hackathon-proiect-main\src\DumbsterDatabaseManagerCLI.cpp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\imagineHackaThon.png" />
+  </ItemGroup>
+
+</Project>
