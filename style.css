@@ -1,0 +1,183 @@
+body {
+    margin: 0;
+    background-color: #EAF5EA;
+    box-sizing: border-box;
+    /* Adăugat text-align: center; pentru a centra textul și butoanele în mod implicit */
+    text-align: center;
+}
+
+/* --- LOGO TEXT (H1) --- */
+.logoTextH1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 4em;
+    font-weight: bold;
+    letter-spacing: -1px;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 5px; /* Adăugat spațiu mic sub H1 */
+
+    /* Gradientul și compatibilitatea cu Chrome */
+    background: linear-gradient(90deg, #2d7d2d, #5cb85c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+/* --- TEXT INTRODUCTIV (H3) --- */
+.textPrimaPagina {
+    font-family: Arial, sans-serif;
+    color: rgb(128, 118, 118);
+    text-align: center;
+    
+    /* STILURI DE BAZĂ ADĂUGATE SAU CORECTATE PENTRU RESPONSIVITATE */
+    font-size: 1.5em; 
+    max-width: 800px; /* Limită de lățime pentru citire optimă */
+    margin: 10px auto 40px auto; /* Centrează și adaugă spațiu generos sub text */
+    padding: 0 5%; /* Asigură că textul nu atinge marginile pe ecrane mici */
+}
+
+/* --- HEADER CONTAINER (.topHeader) --- */
+.topHeader {
+    background-color: white;
+    min-height: 80px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 5%; 
+    border-bottom: rgb(143, 133, 133) 1px solid;
+}
+
+/* --- LOGO IMAGINE --- */
+.logo-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* --- BUTOANE CONTAINER (GLOBAL) --- */
+.buttons-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* NOU: Stilizare pentru containerul de butoane din mijlocul paginii */
+    /* Deoarece este un element de tip flexbox, trebuie centrat explicit în body */
+    justify-content: center;
+    margin: 0 auto;
+}
+
+/* --- BUTOANE (Stiluri Generale) --- */
+.modern-login-button, .modern-inregistrare-button {
+    border: none;
+    padding: 12px 25px; /* Ajustat pentru butoanele principale */
+    border-radius: 30px;
+    font-size: 1em; /* Ajustat */
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    outline: none;
+    /* Asigură că marginile nu se suprapun */
+    white-space: nowrap; 
+}
+
+/* Stiluri Login Button */
+.modern-login-button {
+    background: white;
+    color: rgb(128, 118, 118);
+}
+.modern-login-button:hover {
+    background: #f7f7f7;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Stiluri Înregistrare Button */
+.modern-inregistrare-button {
+    background: linear-gradient(45deg, #2d7d2d, #5cb85c); 
+    color: white;
+}
+.modern-inregistrare-button:hover {
+    background: linear-gradient(45deg, #1e601e, #3e9a3e);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+}
+
+/* ======================================= */
+/* --- MEDIA QUERIES (RESPONSIVITATE) --- */
+/* ======================================= */
+
+@media (max-width: 768px) {
+    /* --- HEADER --- */
+    .topHeader {
+        padding: 10px 3%; 
+    }
+    .logoTextH1 {
+        font-size: 2.5em; 
+        margin-top: 30px;
+    }
+    
+    /* MICȘORARE BUTOANE HEADER */
+    .topHeader .modern-login-button, .topHeader .modern-inregistrare-button {
+        padding: 8px 15px;
+        font-size: 0.8em;
+        border-radius: 20px;
+    }
+    
+    /* --- CONȚINUT PRINCIPAL --- */
+    .textPrimaPagina {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+}
+
+.main-cta-buttons {
+    display: flex;
+    /* Această proprietate le centrează pe butoane */
+    justify-content: center; 
+    align-items: center;
+    gap: 20px; /* Spațiu mai mare între butoanele principale */
+    margin: 30px auto; /* Spațiu deasupra și sub */
+}
+
+@media (max-width: 550px) {
+    /* --- HEADER (Telefon) --- */
+    .topHeader {
+        flex-wrap: wrap;
+        justify-content: center; 
+        min-height: 100px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    
+    .logo-image {
+        margin-bottom: 10px;
+    }
+    
+    /* Containerul de butoane header se mută pe rândul doi și se centrează */
+    .topHeader .buttons-container {
+        width: 100%;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    /* --- CONȚINUT PRINCIPAL (Telefon) --- */
+    .logoTextH1 {
+        font-size: 1.8em;
+    }
+    
+    /* BUTOANELE PRINCIPALE DEVINE UNUL SUB ALTUL */
+    .buttons-container:nth-of-type(2) { /* Vizează containerul de butoane de sub h3 */
+        flex-direction: column;
+        gap: 15px;
+        width: 80%; /* Asigură un aspect bun pe mobil */
+    }
+    
+    .main-cta-buttons .modern-login-button, 
+    .main-cta-buttons .modern-inregistrare-button {
+        width: 100%; /* Ocupă lățimea containerului */
+        padding: 15px 0; /* Pad. mare pentru a fi ușor de apăsat */
+        font-size: 1em;
+    }
+}

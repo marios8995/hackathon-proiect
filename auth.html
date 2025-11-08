@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Greener Planet - Autentificare</title>
+  <link rel="stylesheet" href="auth.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <div class="icon-circle" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" class="leaf-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" role="img" aria-label="logo">
+            <path d="M12 2C8 10 2 12 2 12s2 8 10 8 10-8 10-8-6-2-10-10z"/>
+          </svg>
+        </div>
+        <h1 class="title">Greener Planet</h1>
+        <p class="description">Conectează-te la contul tău.</p>
+      </div>
+
+      <div class="card-content">
+        <form id="login-form" novalidate>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="exemplu@email.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Parolă</label>
+            <input id="password" type="password" placeholder="Parola ta" required />
+          </div>
+
+          <div id="message" class="message" aria-live="polite" hidden></div>
+
+          <button type="submit" id="login-btn">Conectează-te</button>
+        </form>
+
+        <p class="footer-text">
+          Nu ai cont?
+          <a href="signup.html" class="link">Creează cont</a>
+        </p>
+      </div>
+    </div>
+  </div>
+<script>
+  (function () {
+    const form = document.getElementById('login-form');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const btn = document.getElementById('login-btn');
+    const messageDiv = document.getElementById('message');
+
+    function showMessage(text, type = 'error') {
+      messageDiv.textContent = text;
+      messageDiv.className = 'message ' + type;
+      messageDiv.hidden = false;
+    }
+
+    function clearMessage() {
+      messageDiv.textContent = '';
+      messageDiv.hidden = true;
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      clearMessage();
+
+      const email = emailInput.value.trim();
+      const password = passwordInput.value;
+
+      if (!email || !password) {
+        showMessage('Vă rugăm completați toate câmpurile.', 'error');
+        return;
+      }
+
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        showMessage('Adresa de email nu este validă.', 'error');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Se încarcă...';
+
+      try {
+        // --- Integrare backend (ex: Supabase) ---
+        // const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+        // if (error) throw error;
+        // ----------------------------------------
+
+        // Demo local (simulare delay)
+        await new Promise(r => setTimeout(r, 700));
+
+        showMessage('Autentificare reușită — redirecționare...', 'success');
+
+        setTimeout(() => {
+          window.location.href = 'forma.html'; // schimbă destinația după nevoie
+        }, 700);
+
+      } catch (err) {
+        const text = err && err.message ? err.message : 'Eroare la autentificare.';
+        showMessage(text, 'error');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Conectează-te';
+      }
+    });
+  })(); // 👈 închide funcția imediat-invocată
+</script>
+
+
+     
+</body>
+</html>

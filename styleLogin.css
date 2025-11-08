@@ -1,0 +1,21 @@
+
+body {
+    margin: 0;
+    display: flex;
+    background-color: #EAF5EA;
+    box-sizing: border-box;
+    /* Adăugat text-align: center; pentru a centra textul și butoanele în mod implicit */
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.elementeLogin{
+    background-color: white;
+    width: 300px;
+    height: 450px;
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%;
+
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Greener Planet - Creează cont</title>
+  <link rel="stylesheet" href="signup.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <div class="icon-circle">
+          <svg xmlns="http://www.w3.org/2000/svg" class="leaf-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <path d="M12 2C8 10 2 12 2 12s2 8 10 8 10-8 10-8-6-2-10-10z" />
+          </svg>
+        </div>
+        <h1 class="title">Greener Planet</h1>
+        <p class="description">Creează un cont nou pentru a începe.</p>
+      </div>
+
+      <div class="card-content">
+        <form id="signup-form">
+          <div class="form-group">
+            <label for="fullName">Nume complet</label>
+            <input type="text" id="fullName" placeholder="Ion Popescu" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="exemplu@email.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Parolă</label>
+            <input type="password" id="password" placeholder="Minim 6 caractere" required />
+          </div>
+
+          <div class="form-group">
+            <label for="confirmPassword">Confirmă parola</label>
+            <input type="password" id="confirmPassword" placeholder="Introdu din nou parola" required />
+          </div>
+
+          <button type="submit" id="submit-btn">Creează cont</button>
+        </form>
+
+        <p class="footer-text">
+          Ai deja cont?
+          <a href="auth.html" class="link">Loghează-te</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('signup-form');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const fullName = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      if (!fullName || !email || !password || !confirmPassword) {
+        alert("Vă rugăm completați toate câmpurile");
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        alert("Parolele nu se potrivesc");
+        return;
+      }
+
+      if (password.length < 6) {
+        alert("Parola trebuie să conțină cel puțin 6 caractere");
+        return;
+      }
+
+      submitBtn.textContent = "Se încarcă...";
+      submitBtn.disabled = true;
+
+      try {
+        // TODO: Integrează cu Supabase aici (dacă vrei backend real)
+        // Exemplu:
+        // const { error } = await supabase.auth.signUp({ email, password });
+        // if (error) throw error;
+
+        alert("Cont creat cu succes! Te rugăm să te loghezi.");
+        window.location.href = "auth.html";
+      } catch (error) {
+        alert("Eroare: " + error.message);
+      } finally {
+        submitBtn.textContent = "Creează cont";
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+/* Stiluri de bază și de fundal */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7fcf4; /* Un verde foarte deschis, ca în imagine */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Stiluri pentru Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #4CAF50; /* Verde pentru GRENER PLANET */
+}
+
+.logo img {
+    width: 30px; /* Ajustează dimensiunea logo-ului */
+    height: 30px;
+    margin-right: 10px;
+    /* Adaugă stiluri pentru logo dacă e necesar (ex. un cerc verde în jurul lui) */
+}
+
+.greeting {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.breadcrumb {
+    color: #888;
+}
+
+/* Stiluri pentru Secțiunea Principală (Main Content) */
+main {
+    padding: 30px 50px;
+}
+
+/* Container pentru Carduri */
+.card-container {
+    display: flex;
+    gap: 30px; /* Spațiu între cele două carduri */
+    margin-bottom: 30px;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1; /* Face cardurile să ocupe spațiu egal */
+}
+
+.card h2 {
+    text-align: center;
+    font-size: 1.4em;
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Stiluri pentru Zona Graficelor */
+.chart-area {
+    /* Layout specific pentru fiecare grafic */
+}
+
+/* Placeholder pentru Graficul Liniar (Utilizatori) */
+.placeholder-line-chart {
+    height: 200px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ccc;
+    /* Simulare pentru zona graficului */
+}
+
+.chart-value {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: -150px; /* Poziționare deasupra graficului placeholder */
+}
+
+.chart-orders {
+    text-align: center;
+    color: #888;
+}
+
+/* Stiluri pentru Graficul Inel (Deseuri) */
+.donut-chart {
+    height: 200px; /* Spațiu pentru inel */
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ccc;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.title-goes-here {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    font-size: 0.8em;
+    color: #666;
+}
+
+.value-00 {
+    font-size: 3em;
+    font-weight: bold;
+    color: #333; /* Vizibil peste inel */
+    z-index: 10;
+}
+
+/* Stiluri pentru Legendă */
+.legend ul {
+    list-style: none;
+    padding: 0;
+}
+
+.legend li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+.key-color {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.color-blue { background-color: #4285F4; }
+.color-orange { background-color: #FBBC05; }
+.color-red { background-color: #EA4335; }
+.color-green { background-color: #34A853; }
+
+.percent {
+    font-weight: bold;
+}
+
+/* Stiluri pentru Top Contribuitori */
+.contributors {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contributors .title {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.contributors .list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contributors ol {
+    list-style-type: none; /* Elimină numerotarea implicită */
+    counter-reset: top-contributor-counter;
+    padding: 0;
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    width: 60%; /* Ocupă mai mult spațiu pentru nume */
+}
+
+.contributors ol li {
+    counter-increment: top-contributor-counter;
+    margin-bottom: 10px;
+}
+
+.contributors ol li::before {
+    content: counter(top-contributor-counter) ". "; /* Adaugă numărul manual */
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.contributors .scores {
+    text-align: right;
+    width: 40%; /* Spațiu pentru punctaj */
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.contributors .scores p {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
